@@ -1,0 +1,23 @@
+{
+  "name": "gatsby-php-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cd front && npm run build",
+    "build": "cd front && npm run build",
+    "prepare-api": "cd api && composer install", 
+    "clean": "rimraf export && cd front && npm run clean",
+    "export": "npm run clean && npm run prepare-api && copyfiles .htaccess export && ncp api export/api && npm run build && ncp front/public export/public"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "front"
+  ],
+  "devDependencies": {
+    "ncp": "~2.0.0",
+    "copyfiles": "~2.4.1",
+    "rimraf": "~3.0.2"
+  }
+}
